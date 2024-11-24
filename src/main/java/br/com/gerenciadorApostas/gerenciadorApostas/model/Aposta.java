@@ -1,16 +1,34 @@
 package br.com.gerenciadorApostas.gerenciadorApostas.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
+@Table(name = "t_aposta")
 public class Aposta implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBilhete;
+
+    @Column(nullable = false)
     private Double odd;
+
+    @Column(nullable = false)
     private Double valor;
+
+    @Column
     private Boolean processada;
+
+    @Column
     private Boolean vencida;
+
+    @Column
     private Date data;
+
+    @Column
     private Double valorRecebido;
 
     public Aposta() {}
